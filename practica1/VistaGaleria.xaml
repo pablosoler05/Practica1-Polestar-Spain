@@ -1,0 +1,200 @@
+﻿<UserControl x:Class="practica1.VistaGaleria"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+
+    <UserControl.Resources>
+
+        <!-- Aspecto compartido de las tarjetas -->
+        <Style x:Key="EstiloTarjeta" TargetType="Border">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="16"/>
+        </Style>
+
+        <!-- Aspecto compartido del texto normal -->
+        <Style x:Key="TextoTarjeta" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#222222"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                 From="0"
+                                 To="1"
+                                 Duration="0:0:0.5"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Encabezado fijo -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="Galería de vehículos"
+                       FontSize="24"
+                       Foreground="#222222"/>
+
+            <TextBlock Text="Descubre nuestra selección de vehículos eléctricos. Precios desde, sujetos a versión y condiciones."
+                       FontSize="16"
+                       Foreground="#222222"
+                       TextWrapping="Wrap"
+                       Margin="0,8,0,0"/>
+        </StackPanel>
+
+        <!-- Solo se desplaza el catálogo -->
+        <ScrollViewer Grid.Row="1"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="24"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Polestar 2 -->
+                <Border Grid.Row="0"
+                        Grid.Column="0"
+                        Style="{StaticResource EstiloTarjeta}"
+                        VerticalAlignment="Top"
+                        Margin="0,0,0,16">
+
+                    <StackPanel>
+                        <Border Height="180" Background="Transparent">
+                            <Image Source="Imagenes/polestar2.png"
+                                   Stretch="Uniform"
+                                   AutomationProperties.Name="Polestar 2"/>
+                        </Border>
+
+                        <TextBlock Text="Polestar 2"
+                                   Style="{StaticResource TextoTarjeta}"
+                                   FontSize="20"
+                                   FontWeight="SemiBold"
+                                   Margin="0,16,0,8"/>
+
+                        <TextBlock Text="Desde 41.900 €"
+                                   Style="{StaticResource TextoTarjeta}"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,12"/>
+
+                        <TextBlock Text="Fastback eléctrico de diseño escandinavo, con un interior minimalista y tecnología integrada."
+                                   Style="{StaticResource TextoTarjeta}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Polestar 3 -->
+                <Border Grid.Row="0"
+                        Grid.Column="2"
+                        Style="{StaticResource EstiloTarjeta}"
+                        VerticalAlignment="Top"
+                        Margin="0,0,0,16">
+
+                    <StackPanel>
+                        <Border Height="180" Background="Transparent">
+                            <Image Source="Imagenes/polestar3.png"
+                                   Stretch="Uniform"
+                                   AutomationProperties.Name="Polestar 3"/>
+                        </Border>
+
+                        <TextBlock Text="Polestar 3"
+                                   Style="{StaticResource TextoTarjeta}"
+                                   FontSize="20"
+                                   FontWeight="SemiBold"
+                                   Margin="0,16,0,8"/>
+
+                        <TextBlock Text="Desde 69.900 €"
+                                   Style="{StaticResource TextoTarjeta}"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,12"/>
+
+                        <TextBlock Text="SUV eléctrico que combina amplitud, comodidad y un diseño deportivo."
+                                   Style="{StaticResource TextoTarjeta}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Polestar 4 -->
+                <Border Grid.Row="1"
+                        Grid.Column="0"
+                        Style="{StaticResource EstiloTarjeta}"
+                        VerticalAlignment="Top"
+                        Margin="0,0,0,16">
+
+                    <StackPanel>
+                        <Border Height="180" Background="Transparent">
+                            <Image Source="Imagenes/polestar4.png"
+                                   Stretch="Uniform"
+                                   AutomationProperties.Name="Polestar 4"/>
+                        </Border>
+
+                        <TextBlock Text="Polestar 4"
+                                   Style="{StaticResource TextoTarjeta}"
+                                   FontSize="20"
+                                   FontWeight="SemiBold"
+                                   Margin="0,16,0,8"/>
+
+                        <TextBlock Text="Desde 49.900 €"
+                                   Style="{StaticResource TextoTarjeta}"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,12"/>
+
+                        <TextBlock Text="SUV coupé eléctrico que combina una silueta aerodinámica con un interior espacioso."
+                                   Style="{StaticResource TextoTarjeta}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Polestar 5 -->
+                <Border Grid.Row="1"
+                        Grid.Column="2"
+                        Style="{StaticResource EstiloTarjeta}"
+                        VerticalAlignment="Top"
+                        Margin="0,0,0,16">
+
+                    <StackPanel>
+                        <Border Height="180" Background="Transparent">
+                            <Image Source="Imagenes/polestar5.png"
+                                   Stretch="Uniform"
+                                   AutomationProperties.Name="Polestar 5"/>
+                        </Border>
+
+                        <TextBlock Text="Polestar 5"
+                                   Style="{StaticResource TextoTarjeta}"
+                                   FontSize="20"
+                                   FontWeight="SemiBold"
+                                   Margin="0,16,0,8"/>
+
+                        <TextBlock Text="Desde 121.900 €"
+                                   Style="{StaticResource TextoTarjeta}"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,12"/>
+
+                        <TextBlock Text="Gran turismo eléctrico de altas prestaciones, diseñado para combinar deportividad y comodidad."
+                                   Style="{StaticResource TextoTarjeta}"/>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
